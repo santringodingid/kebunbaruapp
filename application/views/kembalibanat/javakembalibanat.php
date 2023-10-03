@@ -40,7 +40,7 @@
 
     const tampilAwal = () => {
         $.ajax({
-            url: '<?= base_url() ?>kembalibanat/getdata',
+            url: '<?= base_url() ?>comeback/getdata',
             method: 'post',
             success: function(data) {
                 $('#tampilData').html(data)
@@ -68,7 +68,7 @@
     const saveData = id => {
         const kembali = $('#kembali').val()
         $.ajax({
-            url: '<?= base_url() ?>kembalibanat/save',
+            url: '<?= base_url() ?>comeback/save',
             method: 'post',
             data: {
                 id,
@@ -109,7 +109,7 @@
 
     tampilData = id => {
         $.ajax({
-            url: '<?= base_url() ?>kembalibanat/getid',
+            url: '<?= base_url() ?>comeback/getid',
             method: 'post',
             data: {
                 id
@@ -151,7 +151,7 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: '<?= base_url() ?>kembalibanat/batal',
+                    url: '<?= base_url() ?>comeback/batal',
                     method: 'post',
                     data: {
                         id
@@ -188,7 +188,7 @@
 
         if (id != '' && e.keyCode == 13) {
             $.ajax({
-                url: '<?= base_url() ?>kembalibanat/cekmodal',
+                url: '<?= base_url() ?>comeback/cekmodal',
                 method: 'post',
                 data: {
                     id
@@ -216,7 +216,7 @@
 
     const dataModal = id => {
         $.ajax({
-            url: '<?= base_url() ?>kembalibanat/getmodal',
+            url: '<?= base_url() ?>comeback/getmodal',
             method: 'post',
             data: {
                 id
@@ -251,7 +251,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
-                        url: '<?= base_url() ?>kembalibanat/saveijin',
+                        url: '<?= base_url() ?>comeback/saveijin',
                         method: 'post',
                         data: {
                             id,
@@ -310,7 +310,7 @@
         const domicile = $('#domicile').val()
 
         $.ajax({
-            url: '<?= base_url() ?>kembalibanat/showfilter',
+            url: '<?= base_url() ?>comeback/showfilter',
             method: 'post',
             data: {
                 type,
