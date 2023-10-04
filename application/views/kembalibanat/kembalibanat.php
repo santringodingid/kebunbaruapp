@@ -66,7 +66,7 @@
                             <div class="card-header">
                                 <h5 class="card-title">Tanggal Kembali</h5>
                             </div>
-                            <form id="formTangal" action="<?= base_url() ?>kembalibanat/tanggal" method="post" autocomplete="off">
+                            <form id="formTangal" action="<?= base_url() ?>comeback/tanggal" method="post" autocomplete="off">
                                 <div class="card-body">
                                     <div class="form-group row">
                                         <label for="tanggal" class="col-sm-2 col-form-label">Tgl.</label>
