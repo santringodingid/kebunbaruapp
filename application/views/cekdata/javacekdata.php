@@ -64,15 +64,15 @@
         loadData(nama)
     })
 
-    $("#tampildata").on('click', '.copyID', function(event) {
-        var $tempElement = $("<input>");
-        $("body").append($tempElement);
-        $tempElement.val($(this).closest(".copyID").find("span").text()).select();
-        document.execCommand("Copy");
-        $tempElement.remove();
-
-        toastr.success('ID berhasil disalin')
-    });
+	function copyToClipboard(text) {
+		var sampleTextarea = document.createElement("textarea");
+		document.body.appendChild(sampleTextarea);
+		sampleTextarea.value = text; //save main text in it
+		sampleTextarea.select(); //select textarea contenrs
+		document.execCommand("copy");
+		document.body.removeChild(sampleTextarea);
+		toastr.success('ID berhasil disalin ke clipboard')
+	}
 </script>
 </body>
 

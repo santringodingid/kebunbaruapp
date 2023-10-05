@@ -1,5 +1,14 @@
 <?php
 $user = $this->session->userdata('tipe_user');
+$fotoc = FCPATH . 'assets/images/apps/fotosantri/';
+$foto = base_url('assets/images/apps/fotosantri/');
+$image = $user . '/' . $hasil->id_santri . '.jpg';
+
+if (file_exists($fotoc . $image) === FALSE || $image == NULL) {
+	$fotoj = $foto . $user . '.jpg';
+} else {
+	$fotoj = $foto . $image;
+}
 ?>
 <div class="card card-success card-outline">
     <div class="card-header">
@@ -8,7 +17,7 @@ $user = $this->session->userdata('tipe_user');
     <div class="card-body">
         <div class="row">
             <div class="col-4">
-                <img src="<?= base_url() ?>assets/fotosantri/<?= $user . '/' . $hasil->id_santri . '.jpg' ?>" alt="Foto santri" style="width: 100%;">
+                <img src="<?= $fotoj ?>" alt="Foto santri" style="width: 100%;">
             </div>
             <div class="col-8">
                 <table style="width: 100%;">

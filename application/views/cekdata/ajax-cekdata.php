@@ -32,9 +32,13 @@
                 ?>
                         <tr style="cursor:pointer">
                             <td class="align-middle"><?= $nods++; ?></td>
-                            <td>
-                                <img style="border-radius: 5px;" alt="Foto <?= $ds->nama_santri ?>" width="45px" class="table-avatar" src="<?= $fotoj ?>">
-                            </td>
+                            <td class="align-middle">
+<!--                                <img style="border-radius: 5px;" alt="Foto --><?php //= $ds->nama_santri ?><!--" width="45px" class="table-avatar" src="--><?php //= $fotoj ?><!--">-->
+								<span style="cursor: pointer" title="Salin ID ke clipboard" onclick="copyToClipboard('<?= $ds->id_santri ?>')">
+									<span class="text-success"><?= $ds->id_santri ?></span>
+									<i class="fas fa-copy ml-1 text-success"></i>
+								</span>
+							</td>
                             <td class="align-middle">
                                 <?= $ds->nama_santri ?>
                             </td>
