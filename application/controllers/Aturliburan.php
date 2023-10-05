@@ -82,6 +82,21 @@ class Aturliburan extends CI_Controller
 		$this->load->view('print/kembalian', $data);
 	}
 
+	public function destroy()
+	{
+		$this->db->select('a.*, b.status_domisili_santri')->from('kembalian as a');
+		$this->db->join('data_santri as b', 'b.id_santri = a.santri_id');
+		$data = $this->db->get()->result_object();
+		if ($data) {
+			foreach ($data as $d) {
+				$status = $d->status_domisili_santri;
+				if ($status == 'LP2K') {
+					$this->db->where('id', $d->id)->delete('kembalian');
+				}
+			}
+		}
+	}
+
     // public function mergeData()
     // {
     //     $data = $this->db->get('kembalian_temp')->result_object();
