@@ -134,7 +134,7 @@
 									<div class="form-group row">
 										<label for="id-proses" class="col-sm-4 col-form-label text-right">No. Reg.</label>
 										<div class="col-sm-8">
-											<input type="text" class="form-control" data-inputmask="'mask' : '99999999999'" data-mask="" id="id-proses" autofocus name="id_proses">
+											<input type="text" class="form-control" data-inputmask="'mask' : '999999999999'" data-mask="" id="id-proses" autofocus name="id_proses">
 											<small class="text-danger">Tekan ENTER untuk cek data</small>
 										</div>
 									</div>
@@ -230,7 +230,7 @@
 									<div class="form-group row">
 										<label for="id-kembali" class="col-sm-4 col-form-label text-right">No. Reg.</label>
 										<div class="col-sm-8">
-											<input type="text" class="form-control" data-inputmask="'mask' : '99999999999'" data-mask="" id="id-kembali" autofocus name="id">
+											<input type="text" class="form-control" data-inputmask="'mask' : '999999999999'" data-mask="" id="id-kembali" autofocus name="id">
 											<small class="text-danger">Tekan ENTER untuk cek data</small>
 										</div>
 									</div>
