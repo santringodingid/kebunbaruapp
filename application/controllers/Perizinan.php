@@ -116,7 +116,7 @@ class Perizinan extends CI_Controller
 
     public function cekPerizinan()
     {
-        $id = $this->input->post('id', true);
+        $id = str_replace('_', '', $this->input->post('id', true));
         $hasil = $this->sbm->cekDataPerizinan($id);
 
         echo json_encode($hasil);
@@ -124,7 +124,7 @@ class Perizinan extends CI_Controller
 
     public function cekPerizinanKembali()
     {
-        $id = $this->input->post('id', true);
+		$id = str_replace('_', '', $this->input->post('id', true));
         $hasil = $this->sbm->cekDataPerizinanKembali($id);
 
         echo json_encode($hasil);
@@ -132,7 +132,7 @@ class Perizinan extends CI_Controller
 
     public function getDataPerizinan()
     {
-        $id = $this->input->post('id', true);
+		$id = str_replace('_', '', $this->input->post('id', true));
         $data = ['data' => $this->sbm->getIzin($id)];
 
         $this->load->view('perizinan/ajax-perizinan', $data);

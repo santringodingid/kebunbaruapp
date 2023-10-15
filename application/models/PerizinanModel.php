@@ -274,7 +274,7 @@ class PerizinanModel extends CI_Model
 
 	public function saveIzinKembali()
 	{
-		$id = $this->input->post('id', true);
+		$id = str_replace('_', '', $this->input->post('id', true));
 		$tanggal = $this->input->post('tanggal', true);
 		$bulan = $this->input->post('bulan', true);
 		$tahun = $this->input->post('tahun', true);
