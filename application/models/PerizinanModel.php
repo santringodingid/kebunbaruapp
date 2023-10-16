@@ -206,7 +206,7 @@ class PerizinanModel extends CI_Model
 
 	public function saveIzin()
 	{
-		$id = $this->input->post('id_proses', true);
+		$id = str_replace('_', '', $this->input->post('id_proses', true));
 		$tanggal = $this->input->post('tanggal', true);
 		$bulan = $this->input->post('bulan', true);
 		$tahun = $this->input->post('tahun', true);
