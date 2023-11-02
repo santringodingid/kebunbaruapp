@@ -66,7 +66,7 @@
                                             <option value="1433-1434">1433-1434</option>
                                             <option value="1432-1433">1432-1433</option>
                                             <option value="1431-1432">1431-1432</option>
-                                            <option value="1431-1432">1430-1431</option>
+                                            <option value="1430-1431">1430-1431</option>
                                             <option value="1429-1430">1429-1430</option>
                                             <option value="1428-1429">1428-1429</option>
                                         </select>
