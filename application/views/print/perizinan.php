@@ -63,7 +63,7 @@
         $keamanan = 'MOH. MOHLAS';
     } else {
         $ketua = 'HALIMAH';
-        $kesehatan = 'TRISNAWATI';
+        $kesehatan = 'WASILATURROHMAH';
         $keamanan = 'MUSLIMAH';
     }
     ?>

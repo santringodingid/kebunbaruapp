@@ -55,7 +55,7 @@
                     <?php endif ?>
 
 
-                    <div class="wrap-input100 validate-input">
+                    <div class="wrap-input100">
                         <input class="input100" type="text" name="username" autofocus>
                         <span class="focus-input100"></span>
                         <span class="label-input100">Username</span>
