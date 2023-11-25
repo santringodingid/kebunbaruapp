@@ -132,13 +132,17 @@
             <table width="100%" style="margin-top: 5px;">
                 <tbody>
                     <tr>
-                        <td colspan="2" style="height: 10px;"></td>
+                        <td colspan="3" style="height: 10px;"></td>
                     </tr>
                     <tr style="text-align: center;">
+						<td style="width: 30%;"> <i>Wali Kelas</i> </td>
                         <td style="width: 30%;"> <i><?= ($alasan == 'Sakit') ? 'Kabag. Kesehatan' : 'Kabag. Kamtib' ?></i> </td>
                         <td style="width: 30%;"><i>Kabid. Ma'hadiyah</i></td>
                     </tr>
                     <tr style="height: 80px; text-align: center;">
+						<td style="vertical-align: bottom;">
+							<b><u>(____________________________)</u></b>
+						</td>
                         <td style="vertical-align: bottom;">
                             <b><u><?= ($alasan == 'Sakit') ? $kesehatan : $keamanan ?></u></b>
                         </td>
