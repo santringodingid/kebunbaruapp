@@ -92,6 +92,33 @@
                         </form>
                     </div>
                 </div>
+				<div class="col-6">
+					<div class="card">
+						<div class="card-header">
+							<h3 class="card-title"> <i class="fa fa-cog"></i> Atur Temu Wali</h3>
+						</div>
+						<!-- /.card-header -->
+						<!-- form start -->
+						<form method="POST" autocomplete="off" action="<?= base_url() ?>pengaturan/importData" enctype="multipart/form-data">
+							<div class="card-body">
+								<div class="form-group">
+									<label for="filepeserta">Upload File xls/xlsx</label>
+									<div class="input-group">
+										<div class="custom-file">
+											<input type="file" class="custom-file-input" name="fileURL">
+											<label class="custom-file-label">Pilih file</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- /.card-body -->
+
+							<div class="card-footer">
+								<button type="submit" class="btn btn-primary float-right">Simpan</button>
+							</div>
+						</form>
+					</div>
+				</div>
             </div>
 
             <!-- /.row -->

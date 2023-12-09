@@ -118,8 +118,94 @@ class Pengaturan extends CI_Controller
 	}
 
 
-	public function Coba()
+	public function importData()
 	{
-		echo $this->baseModel->GetHijriSekarang();
+
+		$file_mimes = array(
+			'text/x-comma-separated-values',
+			'text/comma-separated-values',
+			'application/octet-stream',
+			'application/vnd.ms-excel',
+			'application/x-csv',
+			'text/x-csv',
+			'text/csv',
+			'application/csv',
+			'application/excel',
+			'application/vnd.msexcel',
+			'text/plain',
+			'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+		);
+		$arr_file = explode('.', $_FILES['fileURL']['name']);
+		$extension = end($arr_file);
+
+		if (($extension == 'xlsx' || $extension == 'xls' || $extension == 'csv') && in_array($_FILES['fileURL']['type'], $file_mimes)) {
+
+			$extension = pathinfo($_FILES['fileURL']['name'], PATHINFO_EXTENSION);
+
+			if ($extension == 'csv') {
+				$reader = new \PhpOffice\PhpSpreadsheet\Reader\Csv();
+			} elseif ($extension == 'xlsx') {
+				$reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+			} else {
+				$reader = new \PhpOffice\PhpSpreadsheet\Reader\Xls();
+			}
+			// file path
+			$spreadsheet = $reader->load($_FILES['fileURL']['tmp_name']);
+			$allDataInSheet = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
+
+			// array Count
+			$arrayCount = count($allDataInSheet);
+			$flag = 0;
+			$createArray = array('id', 'wali', 'zone');
+			$makeArray = array('id' => 'id', 'wali' => 'wali', 'zone' => 'zone');
+			$SheetDataKey = array();
+			foreach ($allDataInSheet as $dataInSheet) {
+				foreach ($dataInSheet as $key => $value) {
+					if (in_array(trim($value), $createArray)) {
+						$value = preg_replace('/\s+/', '', $value);
+						$SheetDataKey[trim($value)] = $key;
+					}
+				}
+			}
+			$dataDiff = array_diff_key($makeArray, $SheetDataKey);
+			if (empty($dataDiff)) {
+				$flag = 1;
+			}
+			// match excel sheet column
+			if ($flag == 1) {
+				for ($i = 2; $i <= $arrayCount; $i++) {
+					$id = $SheetDataKey['id'];
+					$wali = $SheetDataKey['wali'];
+					$zone = $SheetDataKey['zone'];
+
+					$id = filter_var(trim($allDataInSheet[$i][$id]), FILTER_SANITIZE_STRING);
+					$wali = filter_var(trim($allDataInSheet[$i][$wali]), FILTER_SANITIZE_STRING);
+					$zone = filter_var(trim($allDataInSheet[$i][$zone]), FILTER_SANITIZE_STRING);
+					$fetchData[] = array('id' => $id, 'wali' => $wali, 'zone' => $zone);
+				}
+				//$data['dataInfo'] = $fetchData;
+				$this->pengaturanModel->setBatchImport($fetchData);
+				$this->pengaturanModel->importDataTemuWali();
+
+				$this->session->set_flashdata('pesanaturkalender', 0);
+			} else {
+				$this->session->set_flashdata('pesanaturkalender', 1);
+			}
+		} else {
+			$this->session->set_flashdata('pesanaturkalender', 2);
+		}
+
+		redirect('pengaturan');
+	}
+
+
+	public function setTemuWali()
+	{
+		$data = $this->db->get('data_santri')->result_object();
+		if ($data) {
+			foreach ($data as $d) {
+				$this->db->where('id', $d->id_santri)->update('temu_wali', ['wali' => $d->wali_santri]);
+			}
+		}
 	}
 }

@@ -61,10 +61,14 @@
         $ketua = 'LUTHFI MASYHURI';
         $kesehatan = 'SUDI YADI, M.Pd.';
         $keamanan = 'MOH. MOHLAS';
+		$textAdd = 'Wali Kelas';
+		$nameAdd = '(____________________________)';
     } else {
         $ketua = 'HALIMAH';
         $kesehatan = 'WASILATURROHMAH';
         $keamanan = 'MUSLIMAH';
+		$textAdd = 'Kabag. Taklimiyah';
+		$nameAdd = '<u>SITI SUHALIA</u>';
     }
     ?>
 
@@ -135,13 +139,13 @@
                         <td colspan="3" style="height: 10px;"></td>
                     </tr>
                     <tr style="text-align: center;">
-						<td style="width: 30%;"> <i>Wali Kelas</i> </td>
+						<td style="width: 30%;"> <i><?= $textAdd ?></i> </td>
                         <td style="width: 30%;"> <i><?= ($alasan == 'Sakit') ? 'Kabag. Kesehatan' : 'Kabag. Kamtib' ?></i> </td>
                         <td style="width: 30%;"><i>Kabid. Ma'hadiyah</i></td>
                     </tr>
                     <tr style="height: 80px; text-align: center;">
 						<td style="vertical-align: bottom;">
-							<b><u>(____________________________)</u></b>
+							<b><?= $nameAdd ?></b>
 						</td>
                         <td style="vertical-align: bottom;">
                             <b><u><?= ($alasan == 'Sakit') ? $kesehatan : $keamanan ?></u></b>

@@ -64,4 +64,10 @@ class PengaturanModel extends CI_Model
         $data = $this->_batchImport;
         $this->db->insert_batch('kalender', $data);
     }
+
+	public function importDataTemuWali()
+	{
+		$data = $this->_batchImport;
+		$this->db->insert_batch('temu_wali', $data);
+	}
 }
