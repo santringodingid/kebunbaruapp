@@ -44,7 +44,7 @@
 							<td class="align-middle"><?= $ds->nama_walisantri ?></td>
 							<td class="align-middle"><?= $ds->nomor_hp_walisantri ?></td>
 							<td class="align-middle">
-								<a href="<?= base_url() ?>temuwali/getPrint/<?= $ds->id_walisantri ?>/<?= $ds->id_santri ?>" class="btn btn-sm btn-default">
+								<a target="_blank" href="<?= base_url() ?>temuwali/getPrint/<?= $ds->id_walisantri ?>/<?= $ds->id_santri ?>" class="btn btn-sm btn-default">
 									<i class="fas fa-print"></i>
 								</a>
 								<button class="btn btn-sm btn-warning" onclick="edit(<?= $ds->id_walisantri ?>)">
