@@ -41,7 +41,7 @@
 
         .clear {
             width: 100%;
-            height: 770px;
+            height: 700px;
             position: relative;
         }
 
@@ -169,12 +169,11 @@
 
         .wrapperbarcode {
 			display: flex;
-			justify-content: end;
             padding: 150px 30px 10px 70px;
         }
 
         .wrapperbawah {
-            float: right;
+            /*float: right;*/
             width: 33%;
             text-align: center;
             font-size: 35pt;
