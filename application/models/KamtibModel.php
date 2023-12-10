@@ -292,4 +292,14 @@ class kamtibModel extends CI_Model
 		}
 		return [$this->db->order_by('domisili_santri ASC, nomor_kamar_santri ASC, status ASC')->get()->result_object(), $daerah];
 	}
+
+	public function getZoneTemu($id)
+	{
+		$data = $this->db->get_where('temu_wali', ['id' => $id])->row_object();
+		if ($data) {
+			return $data->zone;
+		}
+
+		return 'ZONA TIDAK VALID';
+	}
 }
