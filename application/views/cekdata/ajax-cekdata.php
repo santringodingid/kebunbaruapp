@@ -10,8 +10,9 @@
                     <th>KABUPATEN</th>
                     <th>STATUS</th>
                     <th colspan="2">DOMISILI</th>
-                    <th colspan="2">DINIYAH</th>
-                    <th colspan="2">FORMAL</th>
+<!--                    <th colspan="2">DINIYAH</th>-->
+<!--                    <th colspan="2">FORMAL</th>-->
+					<th>ZONA</th>
                 </tr>
             </thead>
             <tbody>
@@ -46,10 +47,11 @@
                             <td class="align-middle"><?= $ds->status_domisili_santri ?></td>
                             <td class="align-middle"><?= $ds->domisili_santri; ?></td>
                             <td class="align-middle"><?= $ds->nomor_kamar_santri; ?></td>
-                            <td class="align-middle"><?= $ds->kelas_diniyah; ?></td>
-                            <td class="align-middle"><?= $ds->tingkat_diniyah; ?></td>
-                            <td class="align-middle"><?= $ds->kelas_formal; ?></td>
-                            <td class="align-middle"><?= $ds->tingkat_formal; ?></td>
+<!--                            <td class="align-middle">--><?php //= $ds->kelas_diniyah; ?><!--</td>-->
+<!--                            <td class="align-middle">--><?php //= $ds->tingkat_diniyah; ?><!--</td>-->
+<!--                            <td class="align-middle">--><?php //= $ds->kelas_formal; ?><!--</td>-->
+<!--                            <td class="align-middle">--><?php //= $ds->tingkat_formal; ?><!--</td>-->
+							<td class="align-middle"><?= $this->km->getZoneTemu($ds->id_santri); ?></td>
                         </tr>
                 <?php
                     }
