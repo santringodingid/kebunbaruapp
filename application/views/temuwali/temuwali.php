@@ -23,6 +23,12 @@
 						<span class="d-block mt-3">Cetak Kartu</span>
 					</a>
 				</div>
+				<div class="col-3">
+					<a href="<?= base_url() ?>temuwali/reset" class="btn btn-outline-primary btn-block py-5">
+						<i class="fas fa-id-card fa-3x"></i>
+						<span class="d-block mt-3">Reset</span>
+					</a>
+				</div>
             </div>
             <!-- /.row -->
             <!-- /.row (main row) -->

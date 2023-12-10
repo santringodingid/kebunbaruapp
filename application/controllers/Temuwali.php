@@ -121,4 +121,11 @@ class Temuwali extends CI_Controller
 
 		$this->load->view('print/ktws', $data);
 	}
+
+	public function reset()
+	{
+		$this->session->unset_userdata('zone_temu_wali');
+
+		redirect('temuwali/index');
+	}
 }
