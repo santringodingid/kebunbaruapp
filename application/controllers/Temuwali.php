@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
-class TemuWali extends CI_Controller
+class Temuwali extends CI_Controller
 {
 	public function __construct()
 	{
