@@ -25,9 +25,13 @@ class TemuWaliModel extends CI_Model
 			];
 		}
 
+		$data = $this->getData($id);
+
 		return [
 			'status' => true,
-			'message' => $id
+			'message' => $id,
+			'id' => $data->id,
+			'name' => $data->nama_santri
 		];
 	}
 

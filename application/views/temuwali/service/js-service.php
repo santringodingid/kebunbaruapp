@@ -61,7 +61,35 @@
 					return false
 				}
 				$('#id').val('')
-				getData(res.message)
+				Swal.fire({
+					title: res.name,
+					text: res.id,
+					icon: 'warning',
+					showCancelButton: true,
+					confirmButtonColor: '#3085d6',
+					cancelButtonColor: '#d33',
+					confirmButtonText: 'Ya, Lanjut',
+					cancelButtonText: 'Batal'
+				}).then((result) => {
+					if (result.isConfirmed) {
+						$.ajax({
+							url: '<?= base_url() ?>temuwali/save',
+							method: 'POST',
+							data: {id, status: 1},
+							dataType: 'JSON',
+							success: res => {
+								let status = res.status
+								if (!status) {
+									toastr.error(res.message)
+									return false
+								}
+								$('#id').focus()
+								$('#show-data').html('')
+								toastr.success(res.message)
+							}
+						})
+					}
+				})
 			}
 		})
 	}

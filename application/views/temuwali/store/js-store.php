@@ -24,6 +24,10 @@
 		"timeOut": "500"
 	}
 
+	$('#modal-edit').on('shown.bs.modal', function (){
+		$('#phone').focus().val('')
+	})
+
 	const loadData = () => {
 		let zone = $('#changeZone').val()
 		let form = $('#changeForm').val()
@@ -51,6 +55,11 @@
 		$('#phone').val('')
 		$('#modal-edit').modal('hide')
 	}
+
+	$('#form-edit').on('submit', function (e){
+		e.preventDefault()
+		update()
+	})
 
 	const update = () => {
 		Swal.fire({
