@@ -24,6 +24,14 @@
 		"timeOut": "500"
 	}
 
+	$('#changeZone').on('change', function (){
+		$('#zone-print').val($(this).val())
+	})
+
+	$('#changeForm').on('change', function (){
+		$('#form-print').val($(this).val())
+	})
+
 	$('#modal-edit').on('shown.bs.modal', function (){
 		$('#phone').focus().val('')
 	})

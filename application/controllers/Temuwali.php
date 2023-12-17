@@ -68,6 +68,34 @@ class Temuwali extends CI_Controller
 		$this->load->view('temuwali/service/ajax-check', $data);
 	}
 
+	public function listKtws()
+	{
+		$zone = $this->input->post('zone', true);
+		$form = $this->input->post('form', true);
+
+		$arrayData = [
+			0 => 'A',
+			15 => 'B',
+			30 => 'C',
+			45 => 'D',
+			60 => 'E',
+			75 => 'F',
+			90 => 'G',
+			105 => 'H',
+			130 => 'I'
+		];
+
+		$hasil = $this->twm->loadData();
+		$data = [
+			'title' => 'Print',
+			'data' => $hasil,
+			'form' => $zone,
+			'abjad' => $arrayData[$form]
+		];
+
+		$this->load->view('print/list-ktws', $data);
+	}
+
 	public function save()
 	{
 		$result = $this->twm->save();

@@ -34,6 +34,15 @@
 						<option value="130">I</option>
 					</select>
 				</div>
+				<div class="col-2">
+					<form action="<?= base_url() ?>temuwali/listKtws" method="post" target="_blank">
+						<input type="hidden" name="zone" id="zone-print" value="">
+						<input type="hidden" name="form" id="form-print" value="">
+						<button type="submit" class="btn btn-primary btn-sm btn-block">
+							Print
+						</button>
+					</form>
+				</div>
 			</div>
 
 			<div class="row mt-4">
