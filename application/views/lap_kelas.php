@@ -75,12 +75,19 @@
         }
     </style>
 </head>
-
+<?php
+$arrTingkat = [
+	'I\'dadiyah',
+	'Ibtidaiyah',
+	'Tsanawiyah',
+	'Aliyah'
+];
+?>
 <body>
     <div>
         <section>
             <h5 class="text-center">
-                REKAPITULASI KEUANGAN <?= ($tingkat != 0) ? $tingkat : '' ?>
+                REKAPITULASI KEUANGAN <?= ($tingkat != 0) ? $arrTingkat[$tingkat] : '' ?>
             </h5>
         </section>
         <section class="mb-5">
@@ -102,12 +109,6 @@
                     <?php
                     $no = 1;
                     if ($data[0]) {
-                        $arrTingkat = [
-                            'I\'dadiyah',
-                            'Ibtidaiyah',
-                            'Tsanawiyah',
-                            'Aliyah'
-                        ];
                         foreach ($data[0] as $d) {
                     ?>
                             <tr>
