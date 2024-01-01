@@ -80,7 +80,7 @@
     <div>
         <section>
             <h5 class="text-center">
-                REKAPITULASI KEUANGAN <?= ($tingkat !== '') ? $tingkat : '' ?>
+                REKAPITULASI KEUANGAN <?= ($tingkat != 0) ? $tingkat : '' ?>
             </h5>
         </section>
         <section class="mb-5">
@@ -92,7 +92,7 @@
                         <th>ALAMAT</th>
                         <th>DOMISILI</th>
                         <th>KELAS</th>
-						<?php if($tingkat !== '') : ?>
+						<?php if($tingkat != 0) : ?>
                         <th>TINGKAT</th>
 						<?php endif; ?>
                         <th>STATUS</th>
@@ -116,7 +116,7 @@
                                 <td><?= $d->desa . ', ' . $d->kab ?></td>
                                 <td><?= str_replace('Khusus ', '', $d->dom) . ' - ' . $d->kamar ?></td>
                                 <td><?= $d->kelas ?></td>
-							<?php if($tingkat !== '') : ?>
+							<?php if($tingkat != 0) : ?>
                                 <td><?= $arrTingkat[$d->tingkat] ?></td>
 							<?php endif; ?>
                                 <td><?= $d->status ?></td>
@@ -154,7 +154,7 @@
 		</section>
         <section>
             <?php
-            $bendahara = [1 => 'ABD. KHOFI', 'HALIMAH'];
+            $bendahara = [1 => 'ABD. KHOFI', 'MARIA NUR HARYATI'];
             ?>
             <div class="text-center">
                 Kebun baru, <?= $this->baseModel->TampilHijri($this->baseModel->GetHijriSekarang()) ?> <br>
