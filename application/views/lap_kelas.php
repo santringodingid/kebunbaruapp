@@ -87,7 +87,7 @@ $arrTingkat = [
     <div>
         <section>
             <h5 class="text-center">
-                REKAPITULASI KEUANGAN <?= ($tingkat != 0) ? $arrTingkat[$tingkat] : '' ?>
+                REKAPITULASI KEUANGAN <?= ($tingkat != '') ? $arrTingkat[$tingkat] : '' ?>
             </h5>
         </section>
         <section class="mb-5">
@@ -99,7 +99,7 @@ $arrTingkat = [
                         <th>ALAMAT</th>
                         <th>DOMISILI</th>
                         <th>KELAS</th>
-						<?php if($tingkat != 0) : ?>
+						<?php if($tingkat != '') : ?>
                         <th>TINGKAT</th>
 						<?php endif; ?>
                         <th>STATUS</th>
@@ -117,7 +117,7 @@ $arrTingkat = [
                                 <td><?= $d->desa . ', ' . $d->kab ?></td>
                                 <td><?= str_replace('Khusus ', '', $d->dom) . ' - ' . $d->kamar ?></td>
                                 <td><?= $d->kelas ?></td>
-							<?php if($tingkat != 0) : ?>
+							<?php if($tingkat != '') : ?>
                                 <td><?= $arrTingkat[$d->tingkat] ?></td>
 							<?php endif; ?>
                                 <td><?= $d->status ?></td>
