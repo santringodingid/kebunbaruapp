@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Laporan Keuangan Bulan <?= $bulan ?></title>
+    <title>Laporan Keuangan</title>
     <link rel="shortcut icon" href="<?= base_url() ?>/assets/logo.png">
     <style>
         * {
@@ -80,7 +80,7 @@
     <div>
         <section>
             <h5 class="text-center">
-                REKAPITULASI KEUANGAN
+                REKAPITULASI KEUANGAN <?= ($tingkat !== '') ? $tingkat : '' ?>
             </h5>
         </section>
         <section class="mb-5">
@@ -92,21 +92,23 @@
                         <th>ALAMAT</th>
                         <th>DOMISILI</th>
                         <th>KELAS</th>
+						<?php if($tingkat !== '') : ?>
                         <th>TINGKAT</th>
+						<?php endif; ?>
                         <th>STATUS</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                     $no = 1;
-                    if ($data) {
+                    if ($data[0]) {
                         $arrTingkat = [
                             'I\'dadiyah',
                             'Ibtidaiyah',
                             'Tsanawiyah',
                             'Aliyah'
                         ];
-                        foreach ($data as $d) {
+                        foreach ($data[0] as $d) {
                     ?>
                             <tr>
                                 <td class="text-center"><?= $no++ ?></td>
@@ -114,7 +116,9 @@
                                 <td><?= $d->desa . ', ' . $d->kab ?></td>
                                 <td><?= str_replace('Khusus ', '', $d->dom) . ' - ' . $d->kamar ?></td>
                                 <td><?= $d->kelas ?></td>
+							<?php if($tingkat !== '') : ?>
                                 <td><?= $arrTingkat[$d->tingkat] ?></td>
+							<?php endif; ?>
                                 <td><?= $d->status ?></td>
                             </tr>
                     <?php
@@ -124,6 +128,30 @@
                 </tbody>
             </table>
         </section>
+		Kesimpulan
+		<section>
+			<table>
+				<tr>
+					<th>NO</th>
+					<th>STATUS</th>
+					<th>JUMLAH</th>
+				</tr>
+				<?php
+				if ($data[1]) {
+					$noo = 1;
+					foreach ($data[1] as $dd) {
+						?>
+						<tr>
+							<td><?= $noo++ ?></td>
+							<td><?= $dd->status ?></td>
+							<td><?= $dd->jumlah ?></td>
+						</tr>
+				<?php
+					}
+				}
+				?>
+			</table>
+		</section>
         <section>
             <?php
             $bendahara = [1 => 'ABD. KHOFI', 'HALIMAH'];

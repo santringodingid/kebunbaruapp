@@ -36,7 +36,8 @@ class RekapKelas extends CI_Controller
     public function laporan()
     {
         $data = [
-            'data' => $this->rkm->loaddata()
+            'data' => $this->rkm->loaddata(),
+			'tingkat' => $this->input->post('tingkat', true)
         ];
 
         $this->load->library('pdf');

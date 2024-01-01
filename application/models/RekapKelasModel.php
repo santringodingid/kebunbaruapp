@@ -81,6 +81,21 @@ class RekapKelasModel extends CI_Model
         if ($status != '') {
             $this->db->where('status', $status);
         }
-        return $this->db->order_by('tingkat ASC, kelas ASC')->get()->result_object();
+        $data = $this->db->order_by('tingkat ASC, status ASC,  kelas ASC')->get()->result_object();
+
+		$this->db->select('COUNT(id) as jumlah, status')->from('rekap_kelas');
+		$this->db->where('tipe', $tipe);
+		if ($tingkat != '') {
+			$this->db->where('tingkat', $tingkat);
+		}
+		if ($kelas != '') {
+			$this->db->where('kelas', $kelas);
+		}
+		if ($status != '') {
+			$this->db->where('status', $status);
+		}
+		$amount = $this->db->group_by('status')->order_by('status', 'ASC')->get()->result_object();
+
+		return [$data, $amount];
     }
 }
