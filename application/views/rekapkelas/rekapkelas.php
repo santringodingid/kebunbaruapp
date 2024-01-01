@@ -13,7 +13,7 @@
                         <div class="card-header py-2 pr-1">
                             <h4 class="card-title mt-1">Rekapitulasi Keuangan Per Kelas</h4>
 
-                            <form action="<?= base_url() ?>rekapkelas/laporan" method="post">
+                            <form action="<?= base_url() ?>rekapkelas/laporan" method="post" target="_blank">
                                 <input type="hidden" name="tingkat" id="val-tingkat" value="">
                                 <input type="hidden" name="kelas" id="val-kelas" value="">
                                 <input type="hidden" name="status" id="val-status" value="">

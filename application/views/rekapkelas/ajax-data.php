@@ -14,7 +14,7 @@
                 </thead>
                 <tbody>
                     <?php
-                    if ($datas) {
+                    if ($datas[0]) {
                         $no = 1;
                         $arT = [
                             'I\'dadiyah',
@@ -22,7 +22,7 @@
                             'Tsanawiyah',
                             'Aliyah'
                         ];
-                        foreach ($datas as $dd) {
+                        foreach ($datas[0] as $dd) {
                             $fotoc = FCPATH . 'assets/images/apps/fotosantri/';
                             $foto = base_url('assets/images/apps/fotosantri/');
                             $image = $dd->tipe . '/' . $dd->santri_id . '.jpg';
