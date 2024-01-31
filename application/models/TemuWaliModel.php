@@ -25,6 +25,8 @@ class TemuWaliModel extends CI_Model
 			];
 		}
 
+		$this->db->where('id', $id)->update('temu_wali', ['wali' => $data->wali_santri]);
+
 		$data = $this->getData($id);
 
 		return [
