@@ -24,8 +24,8 @@ class TemuWaliModel extends CI_Model
 				'message' => 'Opppss...! Zona tidak valid'
 			];
 		}
-
-		$this->db->where('id', $id)->update('temu_wali', ['wali' => $data->wali_santri]);
+		$santri = $this->db->get_where('data_santri', ['id_santri' => $id])->row_object();
+		$this->db->where('id', $id)->update('temu_wali', ['wali' => $santri->wali_santri]);
 
 		$data = $this->getData($id);
 
