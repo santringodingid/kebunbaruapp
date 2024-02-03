@@ -259,12 +259,12 @@
         }
         ?>
     </div>
-    <script>
-        window.print()
-        setTimeout(function() {
-            window.close()
-        }, 2000);
-    </script>
+<!--    <script>-->
+<!--        window.print()-->
+<!--        setTimeout(function() {-->
+<!--            window.close()-->
+<!--        }, 2000);-->
+<!--    </script>-->
 </body>
 
 </html>
