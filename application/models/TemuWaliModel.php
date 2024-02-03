@@ -123,7 +123,10 @@ class TemuWaliModel extends CI_Model
 		if ($data) {
 			$result = $data;
 
-			$query = $this->db->select('id_santri, nama_santri, tipe_santri')->from('data_santri')->where('wali_santri', $data->nik_walisantri)->get();
+			$query = $this->db->select('id_santri, nama_santri, tipe_santri')->from('data_santri')->where([
+				'wali_santri' => $data->nik_walisantri,
+				'status_santri' => 1
+			])->get();
 			$dataSantri = $query->result_object();
 			$total = $query->num_rows();
 		}
