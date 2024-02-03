@@ -156,4 +156,34 @@ class Temuwali extends CI_Controller
 
 		redirect('temuwali/index');
 	}
+
+	public function upload()
+	{
+		$data = [
+			'title' => 'Upload Foto'
+		];
+
+		$this->load->view('layout/header', $data);
+		$this->load->view('temuwali/upload/upload');
+		$this->load->view('layout/footer');
+		$this->load->view('temuwali/upload/js-upload');
+	}
+
+	public function uploadStore()
+	{
+		$config['upload_path']          = FCPATH . '/assets/images/apps/ktws/';
+		// $config['upload_path']          = FCPATH . '/assets/fotowali/dev/';
+		$config['allowed_types']        = 'jpg|jpeg';
+//		$config['file_name']            = $fileName;
+
+		$this->load->library('upload', $config);
+
+		if ($this->upload->do_upload('filepond')) {
+			$data = 1;
+		} else {
+			$data = 0;
+		}
+
+		echo json_encode($data);
+	}
 }

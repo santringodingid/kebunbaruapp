@@ -10,7 +10,26 @@ class TemuWaliModel extends CI_Model
 	{
 		$zone = $this->session->userdata('zone_temu_wali');
 		$data = $this->db->get_where('temu_wali', ['id' => $id])->row_object();
+		$santri = $this->db->get_where('data_santri', ['id_santri' => $id])->row_object();
 
+		if (!$santri) {
+			return [
+				'status' => false,
+				'message' => 'Opppss...! Data tidak ditemukan'
+			];
+		}
+
+		if (!$data) {
+			$this->db->insert('temu_wali', [
+				'id' => $id,
+				'wali' => $santri->wali_santri,
+				'zone' => $zone,
+				'image' => 1
+			]);
+		}
+
+
+		$data = $this->db->get_where('temu_wali', ['id' => $id])->row_object();
 		if (!$data) {
 			return [
 				'status' => false,
@@ -24,7 +43,6 @@ class TemuWaliModel extends CI_Model
 				'message' => 'Opppss...! Zona tidak valid'
 			];
 		}
-		$santri = $this->db->get_where('data_santri', ['id_santri' => $id])->row_object();
 		$this->db->where('id', $id)->update('temu_wali', ['wali' => $santri->wali_santri]);
 
 		$data = $this->getData($id);

@@ -29,6 +29,12 @@
 						<span class="d-block mt-3">Reset</span>
 					</a>
 				</div>
+				<div class="col-3">
+					<a href="<?= base_url() ?>temuwali/upload" class="btn btn-outline-primary btn-block py-5">
+						<i class="fas fa-upload fa-3x"></i>
+						<span class="d-block mt-3">Upload Foto</span>
+					</a>
+				</div>
             </div>
             <!-- /.row -->
             <!-- /.row (main row) -->
