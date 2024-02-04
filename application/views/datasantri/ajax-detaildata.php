@@ -220,7 +220,7 @@
                             </form>
                         </div>
 						<?php endif; ?>
-                        <div class="col-6">
+                        <div class="<?= $jabatanUser == 45 ? 'col-12' : 'col-6' ?>">
                             <button class="btn btn-danger btn-sm btn-block" data-dismiss="modal">
                                 Tutup
                             </button>
