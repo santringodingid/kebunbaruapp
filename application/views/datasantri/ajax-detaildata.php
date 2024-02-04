@@ -151,7 +151,7 @@
                             </table>
                             <?php
                             $jabatanUser = $this->session->userdata('jabatan_user');
-                            if ($jabatanUser != 47 || $jabatanUser != 45) {
+                            if (!in_array($jabatanUser, [47, 45])) {
                             ?>
                                 <div style="margin-top: 60px;" class="text-center">
                                     <button title="Sunting Data Santri" class="btn btn-app bg-default" id="editsantri" data-toggle="modal" data-target="#modal-editsantri">
