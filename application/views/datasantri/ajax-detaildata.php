@@ -151,7 +151,7 @@
                             </table>
                             <?php
                             $jabatanUser = $this->session->userdata('jabatan_user');
-                            if ($jabatanUser != 47) {
+                            if ($jabatanUser != 47 || $jabatanUser != 45) {
                             ?>
                                 <div style="margin-top: 60px;" class="text-center">
                                     <button title="Sunting Data Santri" class="btn btn-app bg-default" id="editsantri" data-toggle="modal" data-target="#modal-editsantri">
@@ -209,6 +209,7 @@
                         </li>
                     </ul>
                     <div class="row">
+						<?php if ($this->session->userdata('jabatan_user') != 45) : ?>
                         <div class="col-6">
                             <form action="<?= base_url() ?>datasantri/printout" target="_blank" method="post" class="d-inline-block" style="width: 100%;">
                                 <input type="hidden" name="idSantri" value="<?= $data->id_santri ?>">
@@ -218,6 +219,7 @@
                                 </button>
                             </form>
                         </div>
+						<?php endif; ?>
                         <div class="col-6">
                             <button class="btn btn-danger btn-sm btn-block" data-dismiss="modal">
                                 Tutup

@@ -177,6 +177,13 @@ class Temuwali extends CI_Controller
 //		$config['file_name']            = $fileName;
 
 		$this->load->library('upload', $config);
+		$data = $this->upload->data();
+		$name = $data['file_name'];
+		$fotoawal = 'assets/images/apps/ktws/' . $name;
+		// $fotoawal = 'assets/fotowali/dev/' . $id . '.jpg';
+		if ($fotoawal) {
+			@unlink($fotoawal);
+		}
 
 		if ($this->upload->do_upload('filepond')) {
 			$data = 1;
